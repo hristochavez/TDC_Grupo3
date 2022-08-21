@@ -1,0 +1,5 @@
+# Ignora todos los archivos Java que se compilan
+*.class
+
+# Ignora la carpeta donde se guardan las compilaciones
+target/
