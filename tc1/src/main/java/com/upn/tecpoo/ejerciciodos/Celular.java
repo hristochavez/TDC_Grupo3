@@ -51,5 +51,6 @@ public class Celular {
     System.out.println("Ingresa el celular: ");
     celu1.call(sc.nextInt());
     celu1.off();
+    sc.close();
   }
 }

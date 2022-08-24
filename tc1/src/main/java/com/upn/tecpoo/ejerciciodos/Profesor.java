@@ -38,5 +38,6 @@ public class Profesor {
     System.out.println("Ingrese el nombre de la clase:");
     prof1.teach(sc.nextLine());
     prof1.goodbye();
+    sc.close();
   }
 }

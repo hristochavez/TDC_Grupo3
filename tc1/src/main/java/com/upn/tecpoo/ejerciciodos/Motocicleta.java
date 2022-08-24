@@ -43,5 +43,6 @@ public class Motocicleta {
     // se solicita el cambio
     System.out.println("Ingrese su cambio:");
     moto1.change(sc.nextInt());
+    sc.close();
   }
 }
