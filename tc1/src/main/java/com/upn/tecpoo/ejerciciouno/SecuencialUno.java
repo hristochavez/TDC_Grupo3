@@ -38,5 +38,7 @@ public class SecuencialUno
 
         System.out.println(numa + " elevado a " + numb + " es:");
         System.out.println(Math.pow(numa, numb));
+
+        inputData.close();
     }
 }

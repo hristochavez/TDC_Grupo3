@@ -40,6 +40,7 @@ public class RepetitivoDos
 
         System.out.println("Basandome en el nombre....tu número de la suerte " +
                 "es:\n" + (cantVocales+numAleat+diaDelAnio));
+        inputData.close();
     }
 
     // Obtiene un número aleatorio entre 0 y maxValue.

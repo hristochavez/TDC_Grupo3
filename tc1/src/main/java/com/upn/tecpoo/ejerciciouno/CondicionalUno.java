@@ -29,6 +29,8 @@ public class CondicionalUno
         } else {
             System.out.println("USUARIO BLOQUEADO");
         };
+
+        inputData.close();
     }
 
     public static boolean sucessfullLogin(String password,int attempts)
@@ -63,6 +65,7 @@ public class CondicionalUno
                 }
             }
         }
+        inputData.close();
         return sucessfullLogin;
     }
 }

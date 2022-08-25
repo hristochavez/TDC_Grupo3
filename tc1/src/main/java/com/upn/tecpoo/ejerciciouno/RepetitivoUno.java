@@ -24,6 +24,8 @@ public class RepetitivoUno
         primos = getPrimos(maxValue);
 
         System.out.println(primos);
+
+        inputData.close();
     }
 
     public static List<String> getPrimos(int max)
