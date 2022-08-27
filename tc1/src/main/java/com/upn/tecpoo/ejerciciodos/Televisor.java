@@ -12,8 +12,7 @@ public class Televisor {
 
   void ObtenerMarca() {
     System.out.println(
-        "El televisor es: " + marca + ", tamaño es de: " + tamaño + ", color: " + color
-            + "px.");
+        "El televisor es: " + marca + ", tamaño es de: " + tamaño + ", color: " + color);
   }
 
   void of() {
