@@ -4,11 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-<<<<<<< HEAD
-  <groupId>com.upn.tecpoo</groupId>
-=======
   <groupId>com.upn.colecciones</groupId>
->>>>>>> 2aa175bfac2773132cee316196ba7225f955f238
   <artifactId>tc3</artifactId>
   <version>1.0-SNAPSHOT</version>
 
