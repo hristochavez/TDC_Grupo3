@@ -1,10 +1,9 @@
 package com.upn.colecciones.empleado;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 import com.upn.colecciones.marcacion.Marcacion;
 import com.upn.colecciones.marcacion.TipoMarcacion;
+import com.upn.colecciones.rol.Rol;
 
 public abstract class Empleado
 {
@@ -13,28 +12,19 @@ public abstract class Empleado
     protected String nombre;
     protected String apePat;
     protected String apeMat;
-    protected Set<Marcacion> marcaciones;
+    protected Rol rol;
 
-    public Empleado(String id, String nombre, String apePat, String apeMat)
+    public Empleado(String id, String nombre, String apePat, String apeMat, Rol rol)
     {
         this.id = id;
         this.nombre = nombre;
         this.apePat = apePat;
         this.apeMat = apeMat;
-        marcaciones = new HashSet<>();
+        this.rol = rol;
     }
 
-    public void marcarEntJor()
+    public void marcar(TipoMarcacion tipoMarcacion)
     {
-        Marcacion m = new Marcacion(this.id, LocalDateTime.now(), 
-            TipoMarcacion.MARCACIONENTRADAJORNADA);
-
-        this.agregarMarcaciones(m);
-        
-    }
-
-    private void agregarMarcaciones(Marcacion m)
-    {
-        marcaciones.add(m);
+        new Marcacion(this.id, LocalDateTime.now(), tipoMarcacion);
     }
 }
