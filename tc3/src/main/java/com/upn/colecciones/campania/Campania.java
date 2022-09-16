@@ -18,41 +18,4 @@ public class Campania
         this.nombre = nombre;
         this.areas = new HashSet<>();
     }
-
-    private String nombreCampania()
-    {
-        return this.nombre;
-    }
-
-    public void agregarArea(Area area)
-    {
-        this.areas.add(area);
-    }
-
-    private int cantAreas()
-    {
-        return this.areas.size();
-    }
-
-    public void informacionCampania()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.append("===============================================\n");
-        sb.append("La campaña "+ this.nombreCampania());
-        sb.append(" tiene " + this.cantAreas() + " áreas.");
-        sb.append("\nCon un total de " + cantAsesores() + " asesores.");
-        sb.append("\n===============================================");
-        System.out.println(sb);
-    }
-
-    private int cantAsesores()
-    {
-        int cantAsesores = 0;
-        for (Area area : areas)
-        {
-            cantAsesores = cantAsesores + area.cantAsesores();
-        }
-        return cantAsesores;
-    }
-
 }
