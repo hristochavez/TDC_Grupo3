@@ -6,3 +6,4 @@ target/
 
 # Ignora el fichero de configuracion de VSCode
 .vscode/
+.idea/

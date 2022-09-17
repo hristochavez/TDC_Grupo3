@@ -1,23 +1,31 @@
 package com.upn.colecciones.main;
 
-import com.upn.colecciones.rol.Admin;
-import com.upn.colecciones.rol.Rol;
-import com.upn.colecciones.rol.SuperAdmin;
+import java.time.LocalDateTime;
+
+import com.upn.colecciones.area.Area;
+import com.upn.colecciones.area.TipoArea;
+import com.upn.colecciones.empleado.Asesor;
 import com.upn.colecciones.empleado.RRHH;
-import com.upn.colecciones.empleado.Supervisor;;
+import com.upn.colecciones.horario.Horario;
+import com.upn.colecciones.rol.SuperAdmin;
+import com.upn.colecciones.tipodocumento.TipoDocumento;
 
 public class Main {
     public static void main(String[] args)
     {
-        Admin admin = new Admin();
-        SuperAdmin sAdmin = new SuperAdmin();
-
-        Supervisor empSuper = new Supervisor("74576066", "Andy", "Chavez", 
-            "Huertas", admin);
         
-        RRHH empRRHH = new RRHH("75328598", "Rosmery", "Yalico", "Chavarria", 
-            sAdmin);
+        Area area = new Area("Mi área", TipoArea.APOYO);
 
-        
+        Horario horario = new Horario(LocalDateTime.now(), LocalDateTime.now(), 6);
+
+        Asesor asesor = new Asesor("74576066", "Andy", "Chavez",    "Huertas", area, TipoDocumento.DNI, horario);
+
+        RRHH rrhh = new RRHH("12345678", "Rosmery", "Yalico", "Chavarria", TipoDocumento.DNI, horario, new SuperAdmin());
+
+        System.out.println(asesor.obtenerNombre());
+
+        rrhh.actualizarNombre(asesor, "Hristo");
+
+        System.out.println(asesor.obtenerNombre());
     }
 }

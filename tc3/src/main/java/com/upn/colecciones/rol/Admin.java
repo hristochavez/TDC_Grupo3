@@ -11,7 +11,7 @@ public class Admin extends Rol implements ActualizadorContrasenia
         "contraseñas de empleados";
 
     @Override
-    public String obtenerRol() { return Admin.NOMBRE; }
+    public String obtenerNombre() { return Admin.NOMBRE; }
 
     @Override
     public String obtenerDescription() { return Admin.DESCRIPCION; }

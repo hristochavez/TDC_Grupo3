@@ -18,4 +18,8 @@ public class Campania
         this.nombre = nombre;
         this.areas = new HashSet<>();
     }
+
+    public void agregarArea(Area area) { areas.add(area); }
+
+    public String obtenerNombre() { return this.nombre; }
 }
