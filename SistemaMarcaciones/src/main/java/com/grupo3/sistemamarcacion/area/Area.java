@@ -1,6 +1,7 @@
-package com.upn.colecciones.area;
+package com.grupo3.sistemamarcacion.area;
 
-import com.upn.colecciones.campania.Campania;
+import com.grupo3.sistemamarcacion.campania.Campania;
+import com.grupo3.sistemamarcacion.tipoarea.TipoArea;
 
 public class Area
 {

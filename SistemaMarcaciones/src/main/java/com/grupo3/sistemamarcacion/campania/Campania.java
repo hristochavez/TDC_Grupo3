@@ -1,4 +1,4 @@
-package com.upn.colecciones.campania;
+package com.grupo3.sistemamarcacion.campania;
 
 public class Campania
 {

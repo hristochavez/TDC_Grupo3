@@ -1,7 +1,7 @@
-package com.upn.colecciones.empleado;
+package com.grupo3.sistemamarcacion.empleado;
 
-import com.upn.colecciones.campania.Campania;
-import com.upn.colecciones.tipodocumento.TipoDocumento;
+import com.grupo3.sistemamarcacion.campania.Campania;
+import com.grupo3.sistemamarcacion.tipodocumento.TipoDocumento;
 
 public class Coordinador extends Empleado
 {

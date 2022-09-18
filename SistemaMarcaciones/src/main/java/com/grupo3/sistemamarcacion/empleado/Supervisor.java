@@ -1,8 +1,8 @@
-package com.upn.colecciones.empleado;
+package com.grupo3.sistemamarcacion.empleado;
 
-import com.upn.colecciones.area.Area;
-import com.upn.colecciones.rol.Admin;
-import com.upn.colecciones.tipodocumento.TipoDocumento;
+import com.grupo3.sistemamarcacion.area.Area;
+import com.grupo3.sistemamarcacion.rol.Admin;
+import com.grupo3.sistemamarcacion.tipodocumento.TipoDocumento;
 
 public class Supervisor extends Empleado
 {

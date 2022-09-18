@@ -1,6 +1,6 @@
-package com.upn.colecciones.rol;
+package com.grupo3.sistemamarcacion.rol;
 
-import com.upn.colecciones.empleado.Empleado;
+import com.grupo3.sistemamarcacion.empleado.Empleado;
 
 public abstract class Rol
 {

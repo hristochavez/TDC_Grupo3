@@ -1,10 +1,9 @@
-package com.upn.colecciones.empleado;
+package com.grupo3.sistemamarcacion.empleado;
 
 import java.time.LocalDateTime;
-
-import com.upn.colecciones.marcacion.Marcacion;
-import com.upn.colecciones.marcacion.TipoMarcacion;
-import com.upn.colecciones.tipodocumento.TipoDocumento;
+import com.grupo3.sistemamarcacion.marcacion.Marcacion;
+import com.grupo3.sistemamarcacion.tipodocumento.TipoDocumento;
+import com.grupo3.sistemamarcacion.tipomarcacion.TipoMarcacion;
 
 public abstract class Empleado
 {

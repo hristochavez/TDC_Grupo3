@@ -1,4 +1,4 @@
-package com.upn.colecciones.rol;
+package com.grupo3.sistemamarcacion.rol;
 
 public class Admin extends Rol
 {

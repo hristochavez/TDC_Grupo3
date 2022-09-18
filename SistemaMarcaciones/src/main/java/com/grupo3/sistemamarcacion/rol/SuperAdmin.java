@@ -1,10 +1,10 @@
-package com.upn.colecciones.rol;
+package com.grupo3.sistemamarcacion.rol;
 
-import com.upn.colecciones.area.Area;
-import com.upn.colecciones.empleado.Empleado;
-import com.upn.colecciones.empleado.RRHH;
-import com.upn.colecciones.empleado.Supervisor;
-import com.upn.colecciones.tipodocumento.TipoDocumento;
+import com.grupo3.sistemamarcacion.area.Area;
+import com.grupo3.sistemamarcacion.empleado.Empleado;
+import com.grupo3.sistemamarcacion.empleado.RRHH;
+import com.grupo3.sistemamarcacion.empleado.Supervisor;
+import com.grupo3.sistemamarcacion.tipodocumento.TipoDocumento;
 
 public class SuperAdmin extends Rol
 {
