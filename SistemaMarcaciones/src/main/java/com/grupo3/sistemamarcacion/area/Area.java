@@ -5,15 +5,14 @@ import com.grupo3.sistemamarcacion.tipoarea.TipoArea;
 
 public class Area
 {
-    private static int contador;
     private int id;
     private String nombre;
     private TipoArea tipo;
     private Campania campania;
 
-    public Area(String nombre, TipoArea tipoArea, Campania campania)
+    public Area(int id, String nombre, TipoArea tipoArea, Campania campania)
     {
-        this.id = Area.contador++;
+        this.id = id;
         this.nombre = nombre;
         this.tipo = tipoArea;
         this.campania = campania;

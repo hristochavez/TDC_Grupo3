@@ -1,8 +1,7 @@
 package com.grupo3.sistemamarcacion.vistas;
 
-import com.grupo3.sistemamarcacion.empleado.Empleado;
+import com.grupo3.sistemamarcacion.controladores.ValidarUsuario;
 import javax.swing.JOptionPane;
-
 public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -91,21 +90,40 @@ public class Login extends javax.swing.JFrame {
 
     private void ingresarBtnActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_ingresarBtnActionPerformed
-        final String user = userTxtField.getText();
-        String pass = String.valueOf(passTxtField.getPassword());
+        String user = userTxtField.getText();
+        String contrasenia = String.valueOf(passTxtField.getPassword());
 
-        Empleado empleado = new Empleado(user, pass);
+        ValidarUsuario vu = new ValidarUsuario(user, contrasenia);
 
-        if(empleado.iniciarSesion()) {
+        if(vu.iniciar()) {
             this.rootPane.setVisible(false);
-
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run()
                 {
-                    new Principal(user).setVisible(true);
+                    MenuPrincipal mp;
+                    switch (vu.obtenerIdTipoEmpleado()) {
+                        case 1:
+                            mp = new MenuPrincipalAsesor(vu.obtenerIdEmpleado(), 
+                                vu.obtenerIdTipoEmpleado());
+                            mp.setVisible(true);
+                        case 2:
+                            mp = new MenuPrincipalCoordinador(vu.obtenerIdEmpleado(), 
+                                vu.obtenerIdTipoEmpleado());
+                            break;
+                        case 3:
+                            mp = new MenuPrincipalSupervisor(vu.obtenerIdEmpleado(), 
+                                vu.obtenerIdTipoEmpleado());
+                            break;
+                        case 4:
+                            mp = new MenuPrincipalRRHH(vu.obtenerIdEmpleado(), 
+                                vu.obtenerIdTipoEmpleado());
+                            break;
+                        default:
+                            break;
+                    }
                 }
             });
-            
+
             dispose();
         } else {
             JOptionPane.showMessageDialog(this.rootPane, 

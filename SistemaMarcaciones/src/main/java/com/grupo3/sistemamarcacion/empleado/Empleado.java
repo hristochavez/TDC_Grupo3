@@ -1,8 +1,6 @@
 package com.grupo3.sistemamarcacion.empleado;
 
 import java.time.LocalDateTime;
-
-import com.grupo3.sistemamarcacion.controladores.ValidarUsuario;
 import com.grupo3.sistemamarcacion.marcacion.Marcacion;
 import com.grupo3.sistemamarcacion.tipodocumento.TipoDocumento;
 import com.grupo3.sistemamarcacion.tipomarcacion.TipoMarcacion;
@@ -26,23 +24,14 @@ public class Empleado
         this.tipoDocumento = tipoDocumento;
     }
 
-    public Empleado(String id, String nombre, String apePat, String apeMat)
-    {
-        this.id = id;
-        this.nombre = nombre;
-        this.apePat = apePat;
-        this.apeMat = apeMat;
+    public String obtenerTipoDocumento(){
+        return this.tipoDocumento.obtenerNombre();
     }
     
     public Empleado(String id, String contrasenia)
     {
         this.id = id;
         this.contrasenia = contrasenia;
-    }
-    
-    public boolean iniciarSesion()
-    {
-        return new ValidarUsuario(this.id, this.contrasenia).iniciar();
     }
 
     public void marcar(TipoMarcacion tipoMarcacion)

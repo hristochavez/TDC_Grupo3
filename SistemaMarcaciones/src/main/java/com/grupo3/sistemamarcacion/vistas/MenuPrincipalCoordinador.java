@@ -1,9 +1,9 @@
 package com.grupo3.sistemamarcacion.vistas;
 
-import com.grupo3.sistemamarcacion.controladores.DatosEmpleado;
+import com.grupo3.sistemamarcacion.controladores.InicioSesion;
 import com.grupo3.sistemamarcacion.empleado.Empleado;
 
-public class Principal extends javax.swing.JFrame {
+public class MenuPrincipalCoordinador extends MenuPrincipal {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apeMatLbl;
@@ -16,14 +16,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel forTipoDocumento;
     private javax.swing.JLabel nombreLbl;
     private javax.swing.JLabel tipoDocumento;
-    private String id;
-    private Empleado empleado;
     // End of variables declaration//GEN-END:variables
+    private Empleado empleado;
 
-    public Principal(String id)
+    public MenuPrincipalCoordinador(String idEmpleado, int idTipoEmpleado)
     {
-        this.id = id;
-        this.empleado = new DatosEmpleado(this.id).obtenerEmpleado();
+        super(idEmpleado, idTipoEmpleado);
+        InicioSesion is = new InicioSesion(idEmpleado, idTipoEmpleado);
+        this.empleado = is.obtenerEmpleado();
         this.initComponents();
         setLocationRelativeTo(null);
     } 
@@ -50,7 +50,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        dniLbl.setText("DNI:");
+        dniLbl.setText("ID:");
 
         nombreLbl.setText("Nombre:");
 
@@ -60,61 +60,38 @@ public class Principal extends javax.swing.JFrame {
 
         tipoDocumento.setText("Tipo de documento:");
 
-        forDniLbl.setText(this.empleado.obtenerUsuario());
-
-        forNombreLbl.setText(this.empleado.obtenerNombre());
-
-        forApePat.setText(this.empleado.obtenerApePat());
-
-        forApeMat.setText(this.empleado.obtenerApeMat());
-
-        forTipoDocumento.setText("forTipoDocumento");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(apeMatLbl)
+                    .addComponent(apePatLbl)
+                    .addComponent(nombreLbl)
+                    .addComponent(tipoDocumento)
+                    .addComponent(dniLbl))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tipoDocumento)
-                        .addGap(60, 60, 60)
-                        .addComponent(forTipoDocumento))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(apeMatLbl)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(forApeMat))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(forNombreLbl)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(nombreLbl)
-                                        .addComponent(dniLbl)
-                                        .addComponent(apePatLbl))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(67, 67, 67)
-                                            .addComponent(forApePat))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(forDniLbl)))))
-                            .addGap(22, 22, 22))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addComponent(forDniLbl)
+                    .addComponent(forNombreLbl)
+                    .addComponent(forApePat)
+                    .addComponent(forApeMat)
+                    .addComponent(forTipoDocumento))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dniLbl)
                     .addComponent(forDniLbl))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreLbl)
-                    .addComponent(forNombreLbl))
+                    .addComponent(forNombreLbl)
+                    .addComponent(nombreLbl))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(apePatLbl)

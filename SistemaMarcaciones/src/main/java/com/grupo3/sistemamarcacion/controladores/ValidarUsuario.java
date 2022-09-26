@@ -1,58 +1,63 @@
 package com.grupo3.sistemamarcacion.controladores;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.CallableStatement;
 import java.sql.SQLException;
-
 public class ValidarUsuario
 {
     private String id;
     private String contrasenia;
     private boolean existe;
-    private static String consulta;
+    private String idEmpleado;
+    private int idTipoEmpleado;
 
     public ValidarUsuario(String id, String contrasenia)
     {
         this.id = id;
         this.contrasenia = contrasenia;
-        ValidarUsuario.consulta = ValidarUsuario.construirConsulta();
     }
 
-    private static String construirConsulta()
+    private static String obternerSP()
     {
-        StringBuilder sb = new StringBuilder();
-        sb.append("SELECT");
-        sb.append(" ID,");
-        sb.append(" CONTRASENIA");
-        sb.append(" FROM");
-        sb.append(" EMPLEADOS");
-        sb.append(" WHERE");
-        sb.append(" ID = ? AND");
-        sb.append(" CONTRASENIA = ?");
-
-        return sb.toString();
+        return "{CALL CONFIRMAR_EXISTENCIA(?, ?, ?, ?)}";
     }
     
     public boolean iniciar()
     {
         ConexionDBMySQL conexion = new ConexionDBMySQL();
-        this.existe = false;
 
         try {
-            PreparedStatement preStat;
-            preStat = conexion.obtenerConexion()
-                .prepareStatement(ValidarUsuario.consulta);
-            preStat.setString(1, this.id);
-            preStat.setString(2, this.contrasenia);
+            CallableStatement callStoPro;
+            callStoPro = conexion.obtenerConexion()
+                .prepareCall(ValidarUsuario.obternerSP());
 
-            ResultSet resSet;
-            resSet = preStat.executeQuery();
-            this.existe = resSet.next();
+            callStoPro.setString(1, this.id);
+            callStoPro.setString(2, this.contrasenia);
+            callStoPro.registerOutParameter(3, java.sql.Types.VARCHAR);
+            callStoPro.registerOutParameter(4, java.sql.Types.INTEGER);
+            callStoPro.execute();
+
+            if (callStoPro.getString(3) != null)
+            {
+                this.existe = true;
+                this.idEmpleado = callStoPro.getString(3);
+                this.idTipoEmpleado = callStoPro.getInt(4);
+            }
+
         } catch(SQLException e) {
             System.out.println(e);
         }
 
         conexion.cerrarConexion();
         return this.existe;
+    }
+
+    public String obtenerIdEmpleado()
+    {
+        return this.idEmpleado;
+    }
+
+    public int obtenerIdTipoEmpleado()
+    {
+        return this.idTipoEmpleado;
     }
 }

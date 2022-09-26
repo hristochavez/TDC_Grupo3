@@ -2,13 +2,12 @@ package com.grupo3.sistemamarcacion.campania;
 
 public class Campania
 {
-    private static int contador;
     private int id;
     private String nombre;
 
-    public Campania(String nombre)
+    public Campania(int id, String nombre)
     {
-        this.id = contador++;
+        this.id = id;
         this.nombre = nombre;
     }
 

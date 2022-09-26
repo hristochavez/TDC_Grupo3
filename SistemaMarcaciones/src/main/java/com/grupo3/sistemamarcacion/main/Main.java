@@ -1,7 +1,6 @@
 package com.grupo3.sistemamarcacion.main;
 
 import com.grupo3.sistemamarcacion.vistas.Login;
-
 public class Main {
     public static void main(String[] args)
     {
