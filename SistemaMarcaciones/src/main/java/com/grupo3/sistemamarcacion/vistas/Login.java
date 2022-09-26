@@ -106,17 +106,21 @@ public class Login extends javax.swing.JFrame {
                             mp = new MenuPrincipalAsesor(vu.obtenerIdEmpleado(), 
                                 vu.obtenerIdTipoEmpleado());
                             mp.setVisible(true);
+                            break;
                         case 2:
                             mp = new MenuPrincipalCoordinador(vu.obtenerIdEmpleado(), 
                                 vu.obtenerIdTipoEmpleado());
+                            mp.setVisible(true);
                             break;
                         case 3:
                             mp = new MenuPrincipalSupervisor(vu.obtenerIdEmpleado(), 
                                 vu.obtenerIdTipoEmpleado());
+                            mp.setVisible(true);
                             break;
                         case 4:
                             mp = new MenuPrincipalRRHH(vu.obtenerIdEmpleado(), 
                                 vu.obtenerIdTipoEmpleado());
+                            mp.setVisible(true);
                             break;
                         default:
                             break;

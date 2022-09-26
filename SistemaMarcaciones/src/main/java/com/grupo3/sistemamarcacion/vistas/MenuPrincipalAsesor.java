@@ -6,8 +6,20 @@ import com.grupo3.sistemamarcacion.empleado.Asesor;
 public class MenuPrincipalAsesor extends MenuPrincipal {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel apeMatLbl;
+    private javax.swing.JLabel apePatLbl;
     private javax.swing.JLabel areaLbl;
+    private javax.swing.JLabel dniLbl;
+    private javax.swing.JLabel forApeMat;
+    private javax.swing.JLabel forApePat;
     private javax.swing.JLabel forAreaLbl;
+    private javax.swing.JLabel forDniLbl;
+    private javax.swing.JLabel forNombreLbl;
+    private javax.swing.JLabel forTipoDocumento;
+    private javax.swing.JButton marcarBtn;
+    private javax.swing.JLabel nombreLbl;
+    private javax.swing.JLabel relojLbl;
+    private javax.swing.JLabel tipoDocumento;
     // End of variables declaration//GEN-END:variables
     private Asesor asesor;
 
@@ -33,7 +45,7 @@ public class MenuPrincipalAsesor extends MenuPrincipal {
         nombreLbl = new javax.swing.JLabel();
         apePatLbl = new javax.swing.JLabel();
         apeMatLbl = new javax.swing.JLabel();
-        tipoDocumentoLbl = new javax.swing.JLabel();
+        tipoDocumento = new javax.swing.JLabel();
         forDniLbl = new javax.swing.JLabel();
         forNombreLbl = new javax.swing.JLabel();
         forApePat = new javax.swing.JLabel();
@@ -45,22 +57,25 @@ public class MenuPrincipalAsesor extends MenuPrincipal {
         forAreaLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menú principal - Asesor");
 
         dniLbl.setText("ID:");
+
         nombreLbl.setText("Nombre:");
+
         apePatLbl.setText("Apellido Paterno:");
+
         apeMatLbl.setText("Apellido Materno:");
-        tipoDocumentoLbl.setText("Tipo de documento:");
+
+        tipoDocumento.setText("Tipo de documento:");
+
         marcarBtn.setText("Marcar");
+
         relojLbl.setText("Aqui va un reloj");
+
         areaLbl.setText("Area:");
 
-        this.forNombreLbl.setText(this.asesor.obtenerNombre());
-        this.forAreaLbl.setText(this.asesor.obtenerArea());
-        this.forApeMat.setText(this.asesor.obtenerApeMat());
-        this.forApePat.setText(this.asesor.obtenerApePat());
-        this.forDniLbl.setText(this.asesor.obtenerUsuario());
-        this.forTipoDocumento.setText(this.asesor.obtenerTipoDocumento());
+        forAreaLbl.setText("forAreaLbl");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +89,7 @@ public class MenuPrincipalAsesor extends MenuPrincipal {
                     .addComponent(apeMatLbl)
                     .addComponent(apePatLbl)
                     .addComponent(nombreLbl)
-                    .addComponent(tipoDocumentoLbl)
+                    .addComponent(tipoDocumento)
                     .addComponent(dniLbl))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -113,7 +128,7 @@ public class MenuPrincipalAsesor extends MenuPrincipal {
                     .addComponent(forApeMat))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoDocumentoLbl)
+                    .addComponent(tipoDocumento)
                     .addComponent(forTipoDocumento))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

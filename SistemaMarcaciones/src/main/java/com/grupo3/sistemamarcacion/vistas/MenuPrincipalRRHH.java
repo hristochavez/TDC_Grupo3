@@ -14,7 +14,9 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
     private javax.swing.JLabel forDniLbl;
     private javax.swing.JLabel forNombreLbl;
     private javax.swing.JLabel forTipoDocumento;
+    private javax.swing.JButton marcarBtn;
     private javax.swing.JLabel nombreLbl;
+    private javax.swing.JLabel relojLbl;
     private javax.swing.JLabel tipoDocumento;
     // End of variables declaration//GEN-END:variables
     private Empleado empleado;
@@ -47,8 +49,11 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
         forApePat = new javax.swing.JLabel();
         forApeMat = new javax.swing.JLabel();
         forTipoDocumento = new javax.swing.JLabel();
+        marcarBtn = new javax.swing.JButton();
+        relojLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menú principal - RRHH");
 
         dniLbl.setText("ID:");
 
@@ -60,6 +65,10 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
 
         tipoDocumento.setText("Tipo de documento:");
 
+        marcarBtn.setText("Marcar");
+
+        relojLbl.setText("Aqui va un reloj");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,19 +76,26 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(apeMatLbl)
                     .addComponent(apePatLbl)
                     .addComponent(nombreLbl)
                     .addComponent(tipoDocumento)
                     .addComponent(dniLbl))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(forDniLbl)
-                    .addComponent(forNombreLbl)
-                    .addComponent(forApePat)
-                    .addComponent(forApeMat)
-                    .addComponent(forTipoDocumento))
-                .addContainerGap(306, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(forDniLbl)
+                            .addComponent(forNombreLbl)
+                            .addComponent(forApePat)
+                            .addComponent(forApeMat)
+                            .addComponent(forTipoDocumento))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                        .addComponent(relojLbl)
+                        .addGap(87, 87, 87))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +120,11 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipoDocumento)
                     .addComponent(forTipoDocumento))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(relojLbl))
+                .addGap(32, 32, 32))
         );
 
         pack();
