@@ -75,7 +75,9 @@ public class MenuPrincipalAsesor extends MenuPrincipal {
 
         areaLbl.setText("Area:");
 
-        forAreaLbl.setText("forAreaLbl");
+        forAreaLbl.setText(this.asesor.obtenerArea());
+
+        forNombreLbl.setText(this.asesor.obtenerNombre());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
