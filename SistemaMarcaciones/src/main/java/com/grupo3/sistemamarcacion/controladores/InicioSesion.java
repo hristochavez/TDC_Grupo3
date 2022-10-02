@@ -7,25 +7,23 @@ import com.grupo3.sistemamarcacion.campania.Campania;
 import com.grupo3.sistemamarcacion.empleado.Asesor;
 import com.grupo3.sistemamarcacion.empleado.Empleado;
 import com.grupo3.sistemamarcacion.tipoarea.TipoArea;
+import com.grupo3.sistemamarcacion.empleado.TipoEmpleado;
 import com.grupo3.sistemamarcacion.tipodocumento.TipoDocumento;
 
-public class InicioSesion
-{
+public class InicioSesion {
+
     private String id;
     private int tipoEmpleado;
     private String sp;
     private Empleado empleado;
 
-    public InicioSesion(String id, int tipoEmpleado)
-    {
+    public InicioSesion(String id, int tipoEmpleado) {
         this.id = id;
         this.tipoEmpleado = tipoEmpleado;
     }
 
-    public Empleado obtenerEmpleado()
-    {
-        switch (this.tipoEmpleado)
-        {
+    public Empleado obtenerEmpleado() {
+        switch (this.tipoEmpleado) {
             case 1:
                 this.sp = "{CALL OBTENER_ASESOR(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
                 this.empleado = this.obtenerAsesor();
@@ -36,8 +34,7 @@ public class InicioSesion
         return this.empleado;
     }
 
-    private Asesor obtenerAsesor()
-    {
+    private Asesor obtenerAsesor() {
         ConexionDBMySQL conexion = new ConexionDBMySQL();
         Asesor asesor = null;
         try {
@@ -56,15 +53,14 @@ public class InicioSesion
             callStoPro.registerOutParameter(9, java.sql.Types.INTEGER);
             callStoPro.registerOutParameter(10, java.sql.Types.VARCHAR);
             callStoPro.execute();
-            
+
             //Atributos de clase Empleado
             String id = callStoPro.getString(2);
             String nombre = callStoPro.getString(3);
             String apePat = callStoPro.getString(4);
             String apeMat = callStoPro.getString(5);
             int idTipoDocumento = callStoPro.getInt(6);
-            TipoDocumento tipoDocumento = 
-                TipoDocumento.obtenerTipoDocumento(idTipoDocumento);
+            TipoDocumento tipoDocumento = TipoDocumento.obtenerTipoDocumento(idTipoDocumento);
 
             //Atributos de clase Compania
             int idCampania = callStoPro.getInt(9);
@@ -76,15 +72,17 @@ public class InicioSesion
             String nombreArea = callStoPro.getString(8);
             int idTipoArea = callStoPro.getInt(9);
             TipoArea tipoArea = TipoArea.obtenerTipoArea(idTipoArea);
+            TipoEmpleado tipoEmpleadox = TipoEmpleado.obtenerTipoEmpleado(idTipoArea);
+        
             Area area = new Area(idArea, nombreArea, tipoArea, campania);
 
             //Se instancia un Asesor
-            asesor = new Asesor(id, nombre, apePat, apeMat, area, tipoDocumento);
+            asesor = new Asesor(id, nombre, apePat, apeMat, area, tipoDocumento,tipoEmpleadox);
 
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
-        
+
         conexion.cerrarConexion();
         return asesor;
     }

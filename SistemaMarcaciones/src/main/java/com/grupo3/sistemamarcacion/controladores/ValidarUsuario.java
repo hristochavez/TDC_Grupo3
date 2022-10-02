@@ -16,7 +16,7 @@ public class ValidarUsuario
         this.contrasenia = contrasenia;
     }
 
-    private static String obternerSP()
+    private static String obtenerSP()
     {
         return "{CALL CONFIRMAR_EXISTENCIA(?, ?, ?, ?)}";
     }
@@ -28,7 +28,7 @@ public class ValidarUsuario
         try {
             CallableStatement callStoPro;
             callStoPro = conexion.obtenerConexion()
-                .prepareCall(ValidarUsuario.obternerSP());
+                .prepareCall(ValidarUsuario.obtenerSP());
 
             callStoPro.setString(1, this.id);
             callStoPro.setString(2, this.contrasenia);

@@ -66,6 +66,11 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
         tipoDocumento.setText("Tipo de documento:");
 
         marcarBtn.setText("Marcar");
+        marcarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                marcarBtnActionPerformed(evt);
+            }
+        });
 
         relojLbl.setText("Aqui va un reloj");
 
@@ -129,4 +134,8 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void marcarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcarBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_marcarBtnActionPerformed
 }
