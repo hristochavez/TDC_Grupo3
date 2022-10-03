@@ -10,9 +10,9 @@ public class Supervisor extends Empleado {
     private Area area;
 
     public Supervisor(String id, String nombre, String apePat, String apeMat,
-            TipoDocumento tipoDocumento, Admin rol, Area area, TipoEmpleado tipoEmpleado) {
-        super(id, nombre, apePat, apeMat, tipoDocumento, tipoEmpleado
-        );
+            TipoDocumento tipoDocumento, Admin rol, Area area,
+            TipoEmpleado tipoEmpleado) {
+        super(id, nombre, apePat, apeMat, tipoDocumento, tipoEmpleado);
         this.rol = rol;
         this.area = area;
     }
