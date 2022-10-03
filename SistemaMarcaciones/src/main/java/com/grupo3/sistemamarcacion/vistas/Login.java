@@ -2,20 +2,15 @@ package com.grupo3.sistemamarcacion.vistas;
 
 import com.grupo3.sistemamarcacion.controladores.ValidarUsuario;
 import javax.swing.JOptionPane;
+
 public class Login extends javax.swing.JFrame {
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ingresarBtn;
-    private javax.swing.JLabel passLbl;
-    private javax.swing.JPasswordField passTxtField;
-    private javax.swing.JLabel userLbl;
-    private javax.swing.JTextField userTxtField;
-    // End of variables declaration//GEN-END:variables
-
-    public Login()
-    {
+    /**
+     * Creates new form Login2
+     */
+    public Login() {
         initComponents();
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -25,104 +20,87 @@ public class Login extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
+
         userLbl = new javax.swing.JLabel();
         passLbl = new javax.swing.JLabel();
         userTxtField = new javax.swing.JTextField();
         passTxtField = new javax.swing.JPasswordField();
         ingresarBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema de marcaciones");
-        setName("Login"); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        userLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         userLbl.setText("Usuario");
+        getContentPane().add(userLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
+        passLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         passLbl.setText("Contraseña");
+        getContentPane().add(passLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        getContentPane().add(userTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 136, -1));
 
+        passTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passTxtFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(passTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 136, -1));
+
+        ingresarBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ingresarBtn.setText("Ingresar");
-
         ingresarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresarBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(ingresarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 98, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(passLbl)
-                    .addComponent(userLbl))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(passTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                    .addComponent(userTxtField))
-                .addContainerGap(102, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(ingresarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userLbl)
-                    .addComponent(userTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(ingresarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/grupo3/sistemamarcacion/vistas/fondo_login.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -170, 470, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ingresarBtnActionPerformed(java.awt.event.ActionEvent evt)
-    {//GEN-FIRST:event_ingresarBtnActionPerformed
+    private void passTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passTxtFieldActionPerformed
+
+    private void ingresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBtnActionPerformed
         String user = userTxtField.getText();
         String contrasenia = String.valueOf(passTxtField.getPassword());
 
         ValidarUsuario vu = new ValidarUsuario(user, contrasenia);
 
-        if(vu.iniciar()) {
+        if (vu.iniciar()) {
             this.rootPane.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run()
-                {
+                public void run() {
                     MenuPrincipal mp;
                     switch (vu.obtenerIdTipoEmpleado()) {
                         case 1:
-                            mp = new MenuPrincipalAsesor(vu.obtenerIdEmpleado(), 
-                                vu.obtenerIdTipoEmpleado());
+                            mp = new MenuPrincipalAsesor(vu.obtenerIdEmpleado(),
+                                    vu.obtenerIdTipoEmpleado());
                             mp.setVisible(true);
                             break;
                         case 2:
-                            mp = new MenuPrincipalCoordinador(vu.obtenerIdEmpleado(), 
-                                vu.obtenerIdTipoEmpleado());
+                            mp = new MenuPrincipalCoordinador(vu.obtenerIdEmpleado(),
+                                    vu.obtenerIdTipoEmpleado());
                             mp.setVisible(true);
                             break;
                         case 3:
-                            mp = new MenuPrincipalSupervisor(vu.obtenerIdEmpleado(), 
-                                vu.obtenerIdTipoEmpleado());
+                            mp = new MenuPrincipalSupervisor(vu.obtenerIdEmpleado(),
+                                    vu.obtenerIdTipoEmpleado());
                             mp.setVisible(true);
                             break;
                         case 4:
-                            mp = new MenuPrincipalRRHH(vu.obtenerIdEmpleado(), 
-                                vu.obtenerIdTipoEmpleado());
+                            mp = new MenuPrincipalRRHH(vu.obtenerIdEmpleado(),
+                                    vu.obtenerIdTipoEmpleado());
                             mp.setVisible(true);
                             break;
                         default:
+                            System.out.println("El tipo de empleado no existe.");
                             break;
                     }
                 }
@@ -130,8 +108,21 @@ public class Login extends javax.swing.JFrame {
 
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this.rootPane, 
-                "Verificar usuario y/o contraseña");
+            JOptionPane.showMessageDialog(this.rootPane,
+                    "Verificar usuario y/o contraseña");
         }
     }//GEN-LAST:event_ingresarBtnActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ingresarBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel passLbl;
+    private javax.swing.JPasswordField passTxtField;
+    private javax.swing.JLabel userLbl;
+    private javax.swing.JTextField userTxtField;
+    // End of variables declaration//GEN-END:variables
 }
