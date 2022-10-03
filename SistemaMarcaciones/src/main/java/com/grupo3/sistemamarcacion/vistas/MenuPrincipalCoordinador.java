@@ -1,6 +1,7 @@
 package com.grupo3.sistemamarcacion.vistas;
 
 import com.grupo3.sistemamarcacion.controladores.InicioSesion;
+import com.grupo3.sistemamarcacion.empleado.Coordinador;
 import com.grupo3.sistemamarcacion.empleado.Empleado;
 
 public class MenuPrincipalCoordinador extends MenuPrincipal {
@@ -19,13 +20,13 @@ public class MenuPrincipalCoordinador extends MenuPrincipal {
     private javax.swing.JLabel relojLbl;
     private javax.swing.JLabel tipoDocumento;
     // End of variables declaration//GEN-END:variables
-    private Empleado empleado;
+    private Coordinador coordinador;
 
     public MenuPrincipalCoordinador(String idEmpleado, int idTipoEmpleado)
     {
         super(idEmpleado, idTipoEmpleado);
         InicioSesion is = new InicioSesion(idEmpleado, idTipoEmpleado);
-        this.empleado = is.obtenerEmpleado();
+        this.coordinador = (Coordinador) is.obtenerEmpleado();
         this.initComponents();
         setLocationRelativeTo(null);
     } 

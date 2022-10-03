@@ -26,7 +26,7 @@ public class MenuPrincipalAsesor extends MenuPrincipal {
     public MenuPrincipalAsesor(String idEmpleado, int idTipoEmpleado)
     {
         super(idEmpleado, idTipoEmpleado);
-        is = new InicioSesion(this.idEmpleado, this.idTipoEmpleado);
+        InicioSesion is = new InicioSesion(this.idEmpleado, this.idTipoEmpleado);
         this.asesor = (Asesor) is.obtenerEmpleado();
         this.initComponents();
         setLocationRelativeTo(null);
