@@ -1,34 +1,31 @@
 package com.grupo3.sistemamarcacion.vistas;
 
+import com.grupo3.sistemamarcacion.controladores.BuscarEmpleado;
+import com.grupo3.sistemamarcacion.controladores.EliminarEmpleado;
 import com.grupo3.sistemamarcacion.controladores.InicioSesion;
 import com.grupo3.sistemamarcacion.empleado.Empleado;
-
+import com.grupo3.sistemamarcacion.empleado.RRHH;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class MenuPrincipalRRHH extends MenuPrincipal {
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel apeMatLbl;
-    private javax.swing.JLabel apePatLbl;
-    private javax.swing.JLabel dniLbl;
-    private javax.swing.JLabel forApeMat;
-    private javax.swing.JLabel forApePat;
-    private javax.swing.JLabel forDniLbl;
-    private javax.swing.JLabel forNombreLbl;
-    private javax.swing.JLabel forTipoDocumento;
-    private javax.swing.JButton marcarBtn;
-    private javax.swing.JLabel nombreLbl;
-    private javax.swing.JLabel relojLbl;
-    private javax.swing.JLabel tipoDocumento;
-    // End of variables declaration//GEN-END:variables
-    private Empleado empleado;
+    /**
+     * Creates new form MenuPrincipalRRHH2
+     */
+    private RRHH rrhh;
+    DefaultTableModel modelo;
+    JButton btnEditar = new JButton("Editar");
+    JButton btnEliminar = new JButton("Eliminar");
 
-    public MenuPrincipalRRHH(String idEmpleado, int idTipoEmpleado)
-    {
+    public MenuPrincipalRRHH(String idEmpleado, int idTipoEmpleado) {
         super(idEmpleado, idTipoEmpleado);
         InicioSesion is = new InicioSesion(idEmpleado, idTipoEmpleado);
-        this.empleado = is.obtenerEmpleado();
+        this.rrhh = (RRHH) is.obtenerEmpleado();
         this.initComponents();
         setLocationRelativeTo(null);
-    } 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,103 +36,177 @@ public class MenuPrincipalRRHH extends MenuPrincipal {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dniLbl = new javax.swing.JLabel();
-        nombreLbl = new javax.swing.JLabel();
-        apePatLbl = new javax.swing.JLabel();
-        apeMatLbl = new javax.swing.JLabel();
-        tipoDocumento = new javax.swing.JLabel();
-        forDniLbl = new javax.swing.JLabel();
-        forNombreLbl = new javax.swing.JLabel();
-        forApePat = new javax.swing.JLabel();
-        forApeMat = new javax.swing.JLabel();
-        forTipoDocumento = new javax.swing.JLabel();
-        marcarBtn = new javax.swing.JButton();
-        relojLbl = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        btnBuscar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        txtDocumento = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        btnNuevo = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableAsesores = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menú principal - RRHH");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dniLbl.setText("ID:");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtros de busqueda"));
+        jPanel2.setToolTipText("Filtros de  busqueda");
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nombreLbl.setText("Nombre:");
+        jLabel2.setText("Apellidos");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 34, -1, -1));
 
-        apePatLbl.setText("Apellido Paterno:");
+        jLabel3.setText("Tipo");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 74, -1, -1));
 
-        apeMatLbl.setText("Apellido Materno:");
+        jLabel4.setText("Nombres");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 34, -1, -1));
 
-        tipoDocumento.setText("Tipo de documento:");
+        jLabel6.setText("Tipo Documento");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, -1));
 
-        marcarBtn.setText("Marcar");
-        marcarBtn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel8.setText("N° Documento");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RRHH", "ADMINISTRACION" }));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 71, 120, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "CARNET DE EXTRANJERIA" }));
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, 130, -1));
+
+        btnBuscar.setBackground(new java.awt.Color(204, 204, 255));
+        btnBuscar.setLabel("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                marcarBtnActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
+        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(802, 70, 100, -1));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 31, 120, -1));
+        jPanel2.add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, 140, -1));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 120, -1));
 
-        relojLbl.setText("Aqui va un reloj");
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 27, 930, 110));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(apeMatLbl)
-                    .addComponent(apePatLbl)
-                    .addComponent(nombreLbl)
-                    .addComponent(tipoDocumento)
-                    .addComponent(dniLbl))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(forDniLbl)
-                            .addComponent(forNombreLbl)
-                            .addComponent(forApePat)
-                            .addComponent(forApeMat)
-                            .addComponent(forTipoDocumento))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                        .addComponent(relojLbl)
-                        .addGap(87, 87, 87))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dniLbl)
-                    .addComponent(forDniLbl))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(forNombreLbl)
-                    .addComponent(nombreLbl))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apePatLbl)
-                    .addComponent(forApePat))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apeMatLbl)
-                    .addComponent(forApeMat))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoDocumento)
-                    .addComponent(forTipoDocumento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(relojLbl))
-                .addGap(32, 32, 32))
-        );
+        btnNuevo.setBackground(new java.awt.Color(204, 204, 255));
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(802, 150, 100, -1));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados de busqueda"));
+        jPanel3.setToolTipText("Resultados de busqueda");
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tableAsesores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tipo Documento", "N° Documento", "Apellidos y Nombres", "Tipo de Empleado", "Editar ", "Eliminar"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableAsesores);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 880, 313));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 930, 360));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 2, 12)); // NOI18N
+        jLabel1.setText("Consultar Empleado");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 0, 117, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void marcarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcarBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_marcarBtnActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String id = txtDocumento.getText();
+        BuscarEmpleado be = new BuscarEmpleado(id);
+        ArrayList<Empleado> empleado = be.buscar();
+        if (!empleado.isEmpty()) {
+            Object[] empi = new Object[6];
+            modelo = (DefaultTableModel) tableAsesores.getModel();
+            for (Empleado emp : empleado) {
+                empi[0] = emp.obtenerTipoDocumento();
+                empi[1] = emp.obtenerUsuario();
+                empi[2] = emp.obtenerApePat() + " " + emp.obtenerApeMat() + " " + emp.obtenerNombre();
+                empi[3] = emp.obtenerTipoEmpleado();
+                empi[4] = btnEditar;
+                empi[5] = btnEliminar;
+                modelo.addRow(empi);
+            }
+            tableAsesores.setModel(modelo);
+            tableAsesores.setRowHeight(40);
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "No existe el empleado",
+                    "Mensaje",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        //por mientras hasta que haya boton eliminar
+        String id = txtDocumento.getText();
+        EliminarEmpleado eE = new EliminarEmpleado(id);
+        if (eE.eliminar()) {
+            JOptionPane.showMessageDialog(null,
+                    "Eliminado con exito",
+                    "Mensaje",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tableAsesores;
+    private javax.swing.JTextField txtDocumento;
+    // End of variables declaration//GEN-END:variables
 }
