@@ -37,7 +37,7 @@ public class InicioSesion {
                 this.empleado = this.obtenerSupervisor();
                 break;
             case 4:
-                this.sp = "{CALL OBTENER_RRHH(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+                this.sp = "{CALL OBTENER_RRHH(?, ?, ?, ?, ?, ?)}";
                 this.empleado = this.obtenerRRHH();
                 break;
             default:
@@ -114,11 +114,11 @@ public class InicioSesion {
             callStoPro.registerOutParameter(6, java.sql.Types.INTEGER);
             callStoPro.registerOutParameter(7, java.sql.Types.INTEGER);
             callStoPro.registerOutParameter(8, java.sql.Types.VARCHAR);
- 
             callStoPro.execute();
             
             //Atributos de clase Empleado
             String id = callStoPro.getString(2);
+            System.out.println(id);
             String nombre = callStoPro.getString(3);
             String apePat = callStoPro.getString(4);
             String apeMat = callStoPro.getString(5);
@@ -130,7 +130,7 @@ public class InicioSesion {
             int idCampania = callStoPro.getInt(7);
             String nombreCampania = callStoPro.getString(8);
             Campania campania = new Campania(idCampania, nombreCampania);
-
+            
             //Se instancia un coordinador
             coordinador = new Coordinador(id, nombre, apePat, apeMat, campania, 
                 tipoDocumento, null);
@@ -206,9 +206,9 @@ public class InicioSesion {
             callStoPro.setString(1, this.id);
             callStoPro.registerOutParameter(2, java.sql.Types.VARCHAR);
             callStoPro.registerOutParameter(3, java.sql.Types.VARCHAR);
-            callStoPro.registerOutParameter(3, java.sql.Types.VARCHAR);
             callStoPro.registerOutParameter(4, java.sql.Types.VARCHAR);
-            callStoPro.registerOutParameter(5, java.sql.Types.INTEGER);
+            callStoPro.registerOutParameter(5, java.sql.Types.VARCHAR);
+            callStoPro.registerOutParameter(6, java.sql.Types.INTEGER);
             callStoPro.execute();
             
             //Atributos de clase Empleado

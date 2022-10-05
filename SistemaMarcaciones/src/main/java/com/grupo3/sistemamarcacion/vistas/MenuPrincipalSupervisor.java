@@ -1,27 +1,34 @@
 package com.grupo3.sistemamarcacion.vistas;
 
+import java.time.LocalDateTime;
+
+import javax.swing.JOptionPane;
+
 import com.grupo3.sistemamarcacion.controladores.InicioSesion;
-import com.grupo3.sistemamarcacion.empleado.Empleado;
+import com.grupo3.sistemamarcacion.controladores.Marcar;
 import com.grupo3.sistemamarcacion.empleado.Supervisor;
-import com.grupo3.sistemamarcacion.rol.SuperAdmin;
+import com.grupo3.sistemamarcacion.tipomarcacion.TipoMarcacion;
 
 public class MenuPrincipalSupervisor extends MenuPrincipal {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apeMatLbl;
     private javax.swing.JLabel apePatLbl;
+    private javax.swing.JLabel areaLbl;
     private javax.swing.JLabel dniLbl;
     private javax.swing.JLabel forApeMat;
     private javax.swing.JLabel forApePat;
+    private javax.swing.JLabel forAreaLbl;
     private javax.swing.JLabel forDniLbl;
     private javax.swing.JLabel forNombreLbl;
     private javax.swing.JLabel forTipoDocumento;
     private javax.swing.JButton marcarBtn;
     private javax.swing.JLabel nombreLbl;
-    private javax.swing.JLabel relojLbl;
+    private javax.swing.JComboBox<String> tipMarcCmbBox;
     private javax.swing.JLabel tipoDocumento;
     // End of variables declaration//GEN-END:variables
     private Supervisor supervisor;
+    private int idTipoMarcacion;
 
     public MenuPrincipalSupervisor(String idEmpleado, int idTipoEmpleado)
     {
@@ -30,7 +37,31 @@ public class MenuPrincipalSupervisor extends MenuPrincipal {
         this.supervisor = (Supervisor) is.obtenerEmpleado();
         this.initComponents();
         setLocationRelativeTo(null);
-    } 
+    }
+
+    //Agrega tipos de marcaciones al combo box
+    private void agregarTipoMarcacion() {
+        for (TipoMarcacion tm : TipoMarcacion.values()) {
+            tipMarcCmbBox.addItem(tm.obtenerNombre());
+        }
+    }
+
+    //Obtener el id del tipo de marcación
+    private int obtenerIdTipoMarcacion() {
+        String nomTipoMarcacion = tipMarcCmbBox.getSelectedItem().toString();
+        return TipoMarcacion.obtenerTipoMarcacion(nomTipoMarcacion).obtenerId();
+    }
+
+    //Realizar una marcación.
+    private void marcar(String idEmp, LocalDateTime fecHorAct, int idTipMarc) {
+        Marcar m = new Marcar(idEmp, fecHorAct, idTipMarc);
+        if (m.ejecutar()) {
+            JOptionPane.showMessageDialog(this.rootPane,
+                    "Marcación realizada con exito");
+        } else {
+            System.out.println("Error al registrar marcación");
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,24 +83,50 @@ public class MenuPrincipalSupervisor extends MenuPrincipal {
         forApeMat = new javax.swing.JLabel();
         forTipoDocumento = new javax.swing.JLabel();
         marcarBtn = new javax.swing.JButton();
-        relojLbl = new javax.swing.JLabel();
+        tipMarcCmbBox = new javax.swing.JComboBox<>();
+        areaLbl = new javax.swing.JLabel();
+        forAreaLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú principal - Supervisor");
 
         dniLbl.setText("ID:");
+        forDniLbl.setText(this.supervisor.obtenerUsuario());
 
         nombreLbl.setText("Nombre:");
+        forNombreLbl.setText(this.supervisor.obtenerNombre());
 
         apePatLbl.setText("Apellido Paterno:");
+        forApePat.setText(this.supervisor.obtenerApePat());
 
         apeMatLbl.setText("Apellido Materno:");
+        forApeMat.setText(this.supervisor.obtenerApeMat());
 
         tipoDocumento.setText("Tipo de documento:");
+        forTipoDocumento.setText(this.supervisor.obtenerTipoDocumento());
 
         marcarBtn.setText("Marcar");
 
-        relojLbl.setText("Aqui va un reloj");
+        areaLbl.setText("Area:");
+        forAreaLbl.setText(this.supervisor.obtenerAreaSupervisada());
+
+        this.agregarTipoMarcacion();
+    
+        //Eventos de JComboBox tipos de marcaciones
+        tipMarcCmbBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTipoMarcacion = obtenerIdTipoMarcacion();
+            }
+        });
+
+        //Evento de JButton marcar
+        marcarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String idEmp = supervisor.obtenerUsuario();
+                LocalDateTime ahora = LocalDateTime.now();
+                marcar(idEmp, ahora, idTipoMarcacion);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,26 +135,32 @@ public class MenuPrincipalSupervisor extends MenuPrincipal {
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(areaLbl)
                     .addComponent(apeMatLbl)
                     .addComponent(apePatLbl)
                     .addComponent(nombreLbl)
                     .addComponent(tipoDocumento)
                     .addComponent(dniLbl))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addComponent(forNombreLbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(tipMarcCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(forApePat)
+                            .addComponent(forApeMat))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(marcarBtn)
+                        .addGap(77, 77, 77))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(forDniLbl)
-                            .addComponent(forNombreLbl)
-                            .addComponent(forApePat)
-                            .addComponent(forApeMat)
-                            .addComponent(forTipoDocumento))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                        .addComponent(relojLbl)
-                        .addGap(87, 87, 87))))
+                            .addComponent(forTipoDocumento)
+                            .addComponent(forAreaLbl))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,27 +169,34 @@ public class MenuPrincipalSupervisor extends MenuPrincipal {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dniLbl)
                     .addComponent(forDniLbl))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(tipMarcCmbBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(forNombreLbl)
+                            .addComponent(nombreLbl))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(forApePat)
+                            .addComponent(apePatLbl))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(apeMatLbl)
+                            .addComponent(forApeMat))))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(forTipoDocumento)
+                    .addComponent(tipoDocumento))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(forNombreLbl)
-                    .addComponent(nombreLbl))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apePatLbl)
-                    .addComponent(forApePat))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apeMatLbl)
-                    .addComponent(forApeMat))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoDocumento)
-                    .addComponent(forTipoDocumento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(marcarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(relojLbl))
-                .addGap(32, 32, 32))
+                    .addComponent(areaLbl)
+                    .addComponent(forAreaLbl))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

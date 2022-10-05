@@ -27,29 +27,37 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="marcarBtn" min="-2" pref="96" max="-2" attributes="0"/>
+                  <Component id="areaLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="apeMatLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="apePatLbl" min="-2" max="-2" attributes="0"/>
                   <Component id="nombreLbl" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="tipoDocumento" min="-2" max="-2" attributes="0"/>
                   <Component id="dniLbl" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="forNombreLbl" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <Component id="tipMarcCmbBox" min="-2" pref="161" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="forDniLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="forNombreLbl" min="-2" max="-2" attributes="0"/>
-                          <Component id="forApePat" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="forApePat" min="-2" max="-2" attributes="0"/>
                           <Component id="forApeMat" min="-2" max="-2" attributes="0"/>
-                          <Component id="forTipoDocumento" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="marcarBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="127" max="32767" attributes="0"/>
-                      <Component id="relojLbl" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="forDniLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="forTipoDocumento" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="forAreaLbl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -63,32 +71,42 @@
                   <Component id="dniLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="forDniLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="tipMarcCmbBox" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="marcarBtn" min="-2" pref="48" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="forNombreLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nombreLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="forApePat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="apePatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="apeMatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="forApeMat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="forNombreLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nombreLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="forTipoDocumento" min="-2" max="-2" attributes="0"/>
+                  <Component id="tipoDocumento" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="apePatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="forApePat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="areaLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="forAreaLbl" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="apeMatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="forApeMat" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tipoDocumento" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="forTipoDocumento" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="marcarBtn" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
-                  <Component id="relojLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -120,23 +138,53 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forDniLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="_id_"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forNombreLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="_nombre_"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forApePat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="_apePat_"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forApeMat">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="_apeMat_"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="forTipoDocumento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="_tipDoc_"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="marcarBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Marcar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="relojLbl">
+    <Component class="javax.swing.JComboBox" name="tipMarcCmbBox">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Aqui va un reloj"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="areaLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Area:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="forAreaLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="_area_"/>
       </Properties>
     </Component>
   </SubComponents>

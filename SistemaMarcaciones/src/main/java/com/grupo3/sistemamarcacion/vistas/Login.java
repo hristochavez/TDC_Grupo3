@@ -30,6 +30,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio de sesión");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -40,12 +41,6 @@ public class Login extends javax.swing.JFrame {
         passLbl.setText("Contraseña");
         getContentPane().add(passLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
         getContentPane().add(userTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 136, -1));
-
-        passTxtField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passTxtFieldActionPerformed(evt);
-            }
-        });
         getContentPane().add(passTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 136, -1));
 
         ingresarBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -55,6 +50,7 @@ public class Login extends javax.swing.JFrame {
                 ingresarBtnActionPerformed(evt);
             }
         });
+        
         getContentPane().add(ingresarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 98, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/grupo3/sistemamarcacion/vistas/fondo_login.png"))); // NOI18N
@@ -62,10 +58,6 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void passTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passTxtFieldActionPerformed
 
     private void ingresarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBtnActionPerformed
         String user = userTxtField.getText();
